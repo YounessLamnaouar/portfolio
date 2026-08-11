@@ -143,7 +143,7 @@ export const ProjectCard = ({
             {tags.map((tag, index) => (
               <span
                 key={index}
-                className="px-2.5 py-0.5 text-[#0b0f14] text-[11px] font-semibold bg-amber-400 rounded-full border border-indigo-100 hover:bg-indigo-100 transition-colors duration-200"
+                className="px-2.5 py-0.5 text-xs text-[#0b0f14] text-[11px] font-semibold bg-amber-400 rounded-full border border-indigo-100 hover:bg-indigo-100 transition-colors duration-200"
               >
                 {tag}
               </span>
