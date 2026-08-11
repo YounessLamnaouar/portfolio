@@ -126,39 +126,39 @@ const ContactPage = () => {
   return (
     <section id="contact" className="w-full min-h-screen px-4 md:px-8 lg:px-12 py-6">
       {/* Main Content */}
-      <h1 className="text-white font-bold text-5xl md:text-6xl lg:text-8xl lg:mt-20 tracking-tighter text-center mt-4 aclonica-regular">Contact</h1>
+      <h1 className="text-white font-bold text-4xl md:text-6xl lg:text-8xl lg:mt-20 tracking-tighter text-center mt-4 aclonica-regular">Contact</h1>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 pb-24">
         <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
 
           {/* Contact Info Sidebar */}
           <div className="lg:col-span-2 space-y-6">
             <div className="bg-white rounded-3xl p-8 shadow-[0_0_40px_rgba(0,0,0,0.06)] border border-slate-100">
-              <h2 className="text-2xl font-bold text-slate-900 mb-2">Contact Info</h2>
-              <p className="text-slate-500 mb-8">Prefer to reach out directly? Here's how.</p>
+              <h2 className="text-xl aclonica-regular font-bold text-[#0b0f14] mb-2">Contact Info</h2>
+              <p className="text-slate-500 text-xs mb-8">Prefer to reach out directly? Here's how.</p>
 
               <div className="space-y-5">
                 {contactInfo.map((item, index) => (
                   <div 
                     key={index}
-                    className="group flex items-start gap-4 p-4 rounded-2xl hover:bg-slate-50 transition-colors duration-300"
+                    className="group flex items-start gap-2 p-2 rounded-2xl hover:bg-slate-50 transition-colors duration-300"
                   >
-                    <div className="p-3 rounded-xl bg-indigo-50 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300">
-                      <item.icon size={20} />
+                    <div className="p-3 rounded-xl bg-indigo-50 border border-amber-400 text-amber-400 group-hover:bg-amber-400 group-hover:text-[#0b0f14] transition-all duration-300">
+                      <item.icon size={16} />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">
+                      <p className="text-xs font-semibold text-amber-400 uppercase tracking-wider mb-1">
                         {item.label}
                       </p>
                       {item.href ? (
                         <a 
                           href={item.href}
-                          className="text-slate-900 font-medium hover:text-indigo-600 transition-colors duration-200 flex items-center gap-1 group/link"
+                          className="text-[#0b0f14] aclonica-regular text-xs font-medium hover:text-amber-400 transition-colors duration-200 flex items-center gap-1 group/link"
                         >
                           {item.value}
                           <ArrowUpRight size={14} className="opacity-0 -translate-y-1 translate-x-1 group-hover/link:opacity-100 group-hover/link:translate-y-0 group-hover/link:translate-x-0 transition-all duration-200" />
                         </a>
                       ) : (
-                        <p className="text-slate-900 font-medium">{item.value}</p>
+                        <p className="text-[#0b0f14] text-xs aclonica-regular font-medium">{item.value}</p>
                       )}
                     </div>
                   </div>
@@ -167,7 +167,7 @@ const ContactPage = () => {
 
               {/* Social Links */}
               <div className="mt-8 pt-8 border-t border-slate-100">
-                <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">
+                <p className="text-xs font-bold text-amber-400 uppercase tracking-wider mb-4">
                   Follow Me
                 </p>
                 <div className="flex gap-3">
@@ -178,9 +178,9 @@ const ContactPage = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={social.label}
-                      className="p-3 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-900 hover:text-white transition-all duration-300 hover:scale-110 hover:-translate-y-1"
+                      className="p-3 rounded-xl bg-slate-100 text-slate-600 hover:bg-amber-400 hover:text-[#0b0f14] transition-all duration-300 hover:scale-110 hover:-translate-y-1"
                     >
-                      <social.icon size={20} />
+                      <social.icon size={16} />
                     </a>
                   ))}
                 </div>
@@ -194,7 +194,7 @@ const ContactPage = () => {
                 <div className="absolute inset-0 w-3 h-3 bg-emerald-500 rounded-full animate-ping opacity-40" />
               </div>
               <div>
-                <p className="font-semibold text-emerald-900">Available for work</p>
+                <p className="font-semibold text-sm aclonica-regular text-emerald-900">Available for work</p>
                 <p className="text-sm text-emerald-700">Open to freelance & full-time opportunities</p>
               </div>
             </div>
@@ -203,8 +203,8 @@ const ContactPage = () => {
           {/* Contact Form */}
           <div className="lg:col-span-3">
             <div className="bg-white rounded-3xl p-8 sm:p-10 shadow-[0_0_40px_rgba(0,0,0,0.06)] border border-slate-100">
-              <h2 className="text-2xl font-bold text-slate-900 mb-2">Send a Message</h2>
-              <p className="text-slate-500 mb-8">Fill out the form and I'll respond within 24 hours.</p>
+              <h2 className="text-xl aclonica-regular font-bold text-[#0b0f14] mb-2">Send a Message</h2>
+              <p className="text-slate-500 text-xs mb-8">Fill out the form and I'll respond within 24 hours.</p>
 
               {status === 'success' ? (
                 <div className="text-center py-16">
@@ -237,8 +237,8 @@ const ContactPage = () => {
                         onChange={handleChange}
                         onFocus={() => setFocusedField('name')}
                         onBlur={() => setFocusedField(null)}
-                        placeholder="John Doe"
-                        className={inputClasses('name')}
+                        placeholder="Uness Lam"
+                        className={`${inputClasses('name')} aclonica-regular text-xs md:text-sm`}
                       />
                       {errors.name && (
                         <p className="mt-1.5 text-sm text-red-500 flex items-center gap-1">
@@ -258,8 +258,8 @@ const ContactPage = () => {
                         onChange={handleChange}
                         onFocus={() => setFocusedField('email')}
                         onBlur={() => setFocusedField(null)}
-                        placeholder="john@example.com"
-                        className={inputClasses('email')}
+                        placeholder="uness@example.com"
+                        className={`${inputClasses('email')} aclonica-regular text-xs md:text-sm`}
                       />
                       {errors.email && (
                         <p className="mt-1.5 text-sm text-red-500 flex items-center gap-1">
@@ -282,7 +282,7 @@ const ContactPage = () => {
                       onFocus={() => setFocusedField('subject')}
                       onBlur={() => setFocusedField(null)}
                       placeholder="Project Inquiry"
-                      className={inputClasses('subject')}
+                      className={`${inputClasses('subject')} aclonica-regular text-xs md:text-sm`}
                     />
                     {errors.subject && (
                       <p className="mt-1.5 text-sm text-red-500 flex items-center gap-1">
@@ -304,7 +304,7 @@ const ContactPage = () => {
                       onBlur={() => setFocusedField(null)}
                       placeholder="Tell me about your project, timeline, and budget..."
                       rows={5}
-                      className={`${inputClasses('message')} resize-none`}
+                      className={`${inputClasses('message')} resize-none aclonica-regular text-xs md:text-sm`}
                     />
                     <div className="flex items-center justify-between mt-1.5">
                       {errors.message ? (
@@ -324,8 +324,8 @@ const ContactPage = () => {
                   <button
                     type="submit"
                     disabled={status === 'loading'}
-                    className="w-full sm:w-auto px-8 py-4 bg-slate-900 text-white font-semibold rounded-2xl 
-                      hover:bg-indigo-600 transition-all duration-300 
+                    className="w-full aclonica-regular sm:w-auto px-8 py-4 bg-slate-900 text-white font-semibold rounded-2xl 
+                      hover:bg-amber-400 hover:text-[#0b0f14] transition-all duration-300 
                       disabled:opacity-60 disabled:cursor-not-allowed
                       flex items-center justify-center gap-2 group"
                   >
