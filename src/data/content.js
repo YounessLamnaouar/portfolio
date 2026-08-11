@@ -1,6 +1,7 @@
 import profileImage from "../assets/profileImage.png";
 import ADII from "../assets/logoADII.png";
 import moroCare from '../assets/moroCare.png'
+import WareTrack from '../assets/wareTrack.png'
 
 export const profile = {
   name: "Youness LAMNAOUAR",
@@ -113,71 +114,42 @@ export const navLinks = [
 ];
 
 export const projects = [
-    {
-      id: 1,
-      title: "MoroCare",
-      description:
-        "A full-stack e-commerce solution with real-time inventory, Stripe payments, and admin dashboard. Built with performance and scalability in mind.",
-      image: moroCare,
-      tags: ["React", "Laravel", "MySql"],
-      links: {
-        github: "https://github.com/yourname/ecommerce",
-        live: "https://your-ecommerce-demo.vercel.app",
-      },
-      date: "2025",
+  {
+    id: 1,
+    title: "MoroCare",
+    description:
+      "A modern healthcare platform designed to simplify access to medical services in Morocco. It allows users to book appointments with doctors, communicate through text-based teleconsultations, and use an AI assistant for medical orientation. The platform also includes secure authentication and dedicated dashboards for users, doctors, and administrators.",
+    image: moroCare,
+    tags: ["React", "Laravel", "MySQL", "Tailwind CSS", "Shadcn UI", "React Bits"],
+    links: {
+      github: "https://github.com/YounessLamnaouar/portfolio",
+      live: "https://younesslamnaouar.netlify.app/",
     },
-    {
-      id: 2,
-      title: "AI Content Studio",
-      description:
-        "An AI-powered content generation platform featuring GPT-4 integration, collaborative editing, and automated SEO optimization.",
-      image: "/projects/ai-studio.jpg",
-      tags: ["Next.js", "OpenAI", "Tailwind", "Prisma", "Vercel"],
-      links: {
-        github: "https://github.com/yourname/ai-studio",
-        live: "https://ai-studio-demo.vercel.app",
-      },
-      date: "2024",
+    date: "2025",
+  },
+
+  {
+    id: 2,
+    title: "WareTrack",
+    description:
+      "A web-based multi-warehouse stock management system designed to centralize products, warehouses, inventory, and stock movements. The platform provides role-based access for administrators, managers, and agents, with complete operation traceability, analytical dashboards, stock alerts, transfer management, and Excel data export.",
+    image: WareTrack,
+    tags: [
+      "React",
+      "Laravel",
+      "MySQL",
+      "Laravel Sanctum",
+      "Axios",
+      "Tailwind CSS",
+    ],
+    links: {
+      github: "YOUR_GITHUB_REPOSITORY_URL",
+      live: "YOUR_LIVE_PROJECT_URL",
     },
-    {
-      id: 3,
-      title: "Real-Time Analytics Dashboard",
-      description:
-        "Interactive data visualization dashboard processing 10M+ events daily. Features custom D3 charts, WebSocket live updates, and export capabilities.",
-      image: "/projects/analytics.jpg",
-      tags: ["React", "D3.js", "WebSockets", "Go", "ClickHouse"],
-      links: {
-        github: "https://github.com/yourname/analytics",
-        live: "https://analytics-demo.vercel.app",
-      },
-      date: "2023",
-    },
-    {
-      id: 4,
-      title: "Mobile Fitness App",
-      description:
-        "Cross-platform fitness tracking application with workout plans, progress analytics, and social features. Integrated with Apple HealthKit and Google Fit.",
-      image: "/projects/fitness.jpg",
-      tags: ["React Native", "TypeScript", "Firebase", "GraphQL"],
-      links: {
-        github: "https://github.com/yourname/fitness-app",
-      },
-      date: "2023",
-    },
-    {
-      id: 5,
-      title: "Design System Library",
-      description:
-        "A comprehensive component library used across 12 products. Includes 60+ accessible components, theming engine, and Storybook documentation.",
-      image: "/projects/design-system.jpg",
-      tags: ["React", "TypeScript", "Storybook", "CSS Modules", "A11y"],
-      links: {
-        github: "https://github.com/yourname/design-system",
-        live: "https://design-system-demo.vercel.app",
-      },
-      date: "2023",
-    },
-  ];
+    date: "2026",
+  },
+];
+
 
 
 
