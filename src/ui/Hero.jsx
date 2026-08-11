@@ -295,6 +295,7 @@ export default function Hero() {
                   <motion.a
                     variants={buttonVariants}
                     href={hero.secondaryBtn.href}
+                    download={hero.secondaryBtn.href}
                     className="cursor-pointer text-xs md:text-sm lg:text-xl text-amber-400 border border-amber-400 rounded-full px-4 py-2 hover:scale-105 transition-transform duration-200"
                   >
                     {hero.secondaryBtn.label}
