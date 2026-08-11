@@ -140,7 +140,7 @@ export const ProjectCard = ({
         {/* Tech Stack - Pushed to bottom */}
         {tags.length > 0 && (
           <div className="flex flex-wrap gap-1.5 mt-auto">
-            {tags.slice(0, 4).map((tag, index) => (
+            {tags.map((tag, index) => (
               <span
                 key={index}
                 className="px-2.5 py-0.5 text-[#0b0f14] text-[11px] font-semibold bg-amber-400 rounded-full border border-indigo-100 hover:bg-indigo-100 transition-colors duration-200"
@@ -148,11 +148,6 @@ export const ProjectCard = ({
                 {tag}
               </span>
             ))}
-            {tags.length > 4 && (
-              <span className="px-2.5 py-0.5 text-[11px] font-semibold text-slate-500 bg-slate-100 rounded-full">
-                +{tags.length - 4}
-              </span>
-            )}
           </div>
         )}
       </div>
