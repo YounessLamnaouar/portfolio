@@ -1,7 +1,8 @@
 import profileImage from "../assets/profileImage.png";
 import ADII from "../assets/logoADII.png";
-import moroCare from '../assets/moroCare.png'
-import WareTrack from '../assets/wareTrack.png'
+import moroCare from "../assets/moroCare.png";
+import WareTrack from "../assets/wareTrack.png";
+import WanderlustWorld from '../assets/WanderlustWorld.png';
 
 export const profile = {
   name: "Youness LAMNAOUAR",
@@ -120,14 +121,20 @@ export const projects = [
     description:
       "A modern healthcare platform designed to simplify access to medical services in Morocco. It allows users to book appointments with doctors, communicate through text-based teleconsultations, and use an AI assistant for medical orientation. The platform also includes secure authentication and dedicated dashboards for users, doctors, and administrators.",
     image: moroCare,
-    tags: ["React", "Laravel", "MySQL", "Tailwind CSS", "Shadcn UI", "React Bits"],
+    tags: [
+      "React",
+      "Laravel",
+      "MySQL",
+      "Tailwind CSS",
+      "Shadcn UI",
+      "React Bits",
+    ],
     links: {
-      github: "https://github.com/YounessLamnaouar/portfolio",
-      live: "https://younesslamnaouar.netlify.app/",
+      github: "https://github.com/YounessLamnaouar/MoroCare_Frontend",
+      live: "https://moro-care-frontend.vercel.app/",
     },
     date: "2025",
   },
-
   {
     id: 2,
     title: "WareTrack",
@@ -148,8 +155,17 @@ export const projects = [
     },
     date: "2026",
   },
+  {
+    id: 3,
+    title: "Wanderlust World",
+    description:
+      "A travel and tourism website designed to inspire people to explore the world and discover unforgettable experiences. The platform presents travel destinations, photos, registration, and information about the company, while highlighting personalized travel planning, global experiences, expert support, and sustainable tourism.",
+    image: WanderlustWorld,
+    tags: ["HTML", "CSS", "JavaScript"],
+    links: {
+      github: "YOUR_GITHUB_REPOSITORY_URL",
+      live: "YOUR_LIVE_PROJECT_URL",
+    },
+    date: "2024",
+  },
 ];
-
-
-
-
