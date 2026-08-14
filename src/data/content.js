@@ -3,6 +3,7 @@ import ADII from "../assets/logoADII.png";
 import moroCare from "../assets/moroCare.png";
 import WareTrack from "../assets/wareTrack.png";
 import WanderlustWorld from '../assets/WanderlustWorld.png';
+import cv from '../../public/CV_YounessLAMNAOUAR.pdf'
 
 export const profile = {
   name: "Youness LAMNAOUAR",
@@ -18,7 +19,7 @@ export const profile = {
     { lang: "English", level: "Intermediate" },
     { lang: "Arabic", level: "Fluent" },
   ],
-  resumeUrl: "/CV_YounessLAMNAOUAR.pdf",
+  resumeUrl: {cv},
   github: "https://github.com/YounessLamnaouar/",
   linkedin: "https://www.linkedin.com/in/youness-lamnaouar-939a79353/",
 };
@@ -163,8 +164,8 @@ export const projects = [
     image: WanderlustWorld,
     tags: ["HTML", "CSS", "JavaScript"],
     links: {
-      github: "YOUR_GITHUB_REPOSITORY_URL",
-      live: "YOUR_LIVE_PROJECT_URL",
+      github: "https://github.com/YounessLamnaouar/WanderlustWorld_fullStack",
+      live: "https://wanderlust-world-full-stack.vercel.app/",
     },
     date: "2024",
   },
