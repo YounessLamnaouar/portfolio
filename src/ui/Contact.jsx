@@ -50,14 +50,14 @@ const ContactPage = () => {
 
   return (
     <section id="contact" className="w-full min-h-screen py-6 overflow-hidden">
-      <h1 className="text-white font-bold text-4xl md:text-6xl lg:text-8xl lg:mt-20 tracking-tighter text-center mt-4 aclonica-regular">
+      <h1 data-aos="fade-up" className="text-white font-bold text-4xl md:text-6xl lg:text-8xl lg:mt-20 tracking-tighter text-center mt-4 aclonica-regular">
         Contact
       </h1>
 
       <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 mt-10 pb-24">
         <div className="w-full grid lg:grid-cols-5 gap-6 lg:gap-8">
           <div className="lg:col-span-2 w-full space-y-6">
-            <div className="w-full bg-white rounded-3xl p-6 sm:p-8 shadow-[0_0_40px_rgba(0,0,0,0.06)] border border-slate-100">
+            <div data-aos="fade-up" className="w-full bg-white rounded-3xl p-6 sm:p-8 shadow-[0_0_40px_rgba(0,0,0,0.06)] border border-slate-100">
               <h2 className="text-xl aclonica-regular font-bold text-[#0b0f14] mb-2">Contact Info</h2>
               <p className="text-slate-500 text-xs mb-8">Prefer to reach out directly? Here's how.</p>
 
@@ -94,7 +94,7 @@ const ContactPage = () => {
               </div>
             </div>
 
-            <div className="w-full bg-emerald-50 rounded-3xl p-6 border border-emerald-100 flex items-center gap-4">
+            <div data-aos="fade-up" data-aos-delay="200" className="w-full bg-emerald-50 rounded-3xl p-6 border border-emerald-100 flex items-center gap-4">
               <div className="relative shrink-0">
                 <div className="w-3 h-3 bg-emerald-500 rounded-full" />
                 <div className="absolute inset-0 w-3 h-3 bg-emerald-500 rounded-full animate-ping opacity-40" />
@@ -106,7 +106,7 @@ const ContactPage = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-3 w-full">
+          <div data-aos="fade-up" data-aos-delay="400" className="lg:col-span-3 w-full">
             <div className="w-full bg-white rounded-3xl p-6 sm:p-8 lg:p-10 shadow-[0_0_40px_rgba(0,0,0,0.06)] border border-slate-100">
               <h2 className="text-xl aclonica-regular font-bold text-[#0b0f14] mb-2">Send a Message</h2>
               <p className="text-slate-500 text-xs mb-8">Fill out the form and I'll respond within 24 hours.</p>
