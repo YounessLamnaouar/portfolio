@@ -178,7 +178,7 @@ export const projects = [
     tags: ["ReactJs", "Tailwind CSS", "AOS", "Lucide Icons"],
     links: {
       github: "https://ecommercefrontend-ochre-two.vercel.app",
-      live: "https://wanderlust-world-full-stack.vercel.app/",
+      live: "https://ecommercefrontend-ochre-two.vercel.app",
     },
     date: "2026",
   },
