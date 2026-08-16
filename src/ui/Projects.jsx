@@ -87,7 +87,7 @@ export const ProjectCard = ({
                 aria-label="View GitHub repository"
                 onClick={(e) => e.stopPropagation()}
               >
-                <SiGithub size={16} />
+                <SiGithub size={24} />
               </a>
             )}
             {links.live && (
@@ -99,7 +99,7 @@ export const ProjectCard = ({
                 aria-label="View live project"
                 onClick={(e) => e.stopPropagation()}
               >
-                <ExternalLink size={16} />
+                <ExternalLink size={24} />
               </a>
             )}
           </div>
