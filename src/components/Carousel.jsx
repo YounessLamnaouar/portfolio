@@ -275,7 +275,9 @@
 //   );
 // }
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+
+
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { motion, useMotionValue, useTransform } from 'motion/react';
 import { FiCircle, FiCode, FiFileText, FiLayers, FiLayout } from 'react-icons/fi';
 
@@ -291,7 +293,6 @@ function CarouselItem({ item, index, itemWidth, itemHeight, round, trackItemOffs
   const outputRange = [90, 0, -90];
   const rotateY = useTransform(x, range, outputRange, { clamp: false });
 
-  // Custom content (e.g. a ProjectCard) takes over the whole item, no default chrome
   if (item.content) {
     return (
       <motion.div
@@ -340,8 +341,8 @@ function CarouselItem({ item, index, itemWidth, itemHeight, round, trackItemOffs
 
 export default function Carousel({
   items = DEFAULT_ITEMS,
-  baseWidth = 300,
-  baseHeight,               // NEW: explicit height (defaults below)
+  baseWidth,               // now OPTIONAL: acts as a max-width cap, not the actual width
+  baseHeight = 480,
   autoplay = false,
   autoplayDelay = 3000,
   pauseOnHover = false,
@@ -349,9 +350,30 @@ export default function Carousel({
   round = false
 }) {
   const containerPadding = 16;
-  const itemWidth = baseWidth - containerPadding * 2;
-  const resolvedBaseHeight = baseHeight ?? (round ? baseWidth : 420);
-  const itemHeight = resolvedBaseHeight - containerPadding * 2;
+
+  // --- responsive width measurement ---
+  const wrapperRef = useRef(null);
+  const [measuredWidth, setMeasuredWidth] = useState(baseWidth || 300);
+
+  useLayoutEffect(() => {
+    const el = wrapperRef.current;
+    if (!el) return;
+
+    const update = () => {
+      const w = el.offsetWidth;
+      if (w > 0) setMeasuredWidth(w);
+    };
+
+    update();
+
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  const effectiveBaseWidth = baseWidth ? Math.min(baseWidth, measuredWidth) : measuredWidth;
+  const itemWidth = effectiveBaseWidth - containerPadding * 2;
+  const itemHeight = baseHeight - containerPadding * 2;
   const trackItemOffset = itemWidth + GAP;
 
   const itemsForRender = useMemo(() => {
@@ -396,13 +418,20 @@ export default function Carousel({
     const startingPosition = loop ? 1 : 0;
     setPosition(startingPosition);
     x.set(-startingPosition * trackItemOffset);
-  }, [items.length, loop, trackItemOffset, x]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [items.length, loop]);
 
   useEffect(() => {
     if (!loop && position > itemsForRender.length - 1) {
       setPosition(Math.max(0, itemsForRender.length - 1));
     }
   }, [itemsForRender.length, loop, position]);
+
+  // keep the track aligned when the width changes (resize/orientation change)
+  useEffect(() => {
+    x.set(-position * trackItemOffset);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [trackItemOffset]);
 
   const effectiveTransition = isJumping ? { duration: 0 } : SPRING_OPTIONS;
 
@@ -472,15 +501,22 @@ export default function Carousel({
   const activeIndex =
     items.length === 0 ? 0 : loop ? (position - 1 + items.length) % items.length : Math.min(position, items.length - 1);
 
+  const goTo = (index) => setPosition(loop ? index + 1 : index);
+  const goPrev = () => setPosition(prev => Math.max(0, prev - 1));
+  const goNext = () => setPosition(prev => Math.min(itemsForRender.length - 1, prev + 1));
+
   return (
     <div
-      ref={containerRef}
-      className={`relative overflow-hidden p-4 ${
+      ref={node => {
+        wrapperRef.current = node;
+        containerRef.current = node;
+      }}
+      className={`relative overflow-hidden p-4 w-full ${
         round ? 'rounded-full border border-white' : 'rounded-[24px] border border-[#222]'
       }`}
       style={{
-        width: `${baseWidth}px`,
-        height: `${resolvedBaseHeight}px`
+        maxWidth: baseWidth ? `${baseWidth}px` : '100%',
+        height: `${baseHeight}px`
       }}>
       <motion.div
         className="flex"
@@ -512,22 +548,22 @@ export default function Carousel({
             transition={effectiveTransition} />
         ))}
       </motion.div>
+
+      {/* dot navigation — small circular links between slides */}
       <div
-        className={`flex w-full justify-center ${round ? 'absolute z-20 bottom-12 left-1/2 -translate-x-1/2' : ''}`}>
-        <div className="mt-4 flex w-[150px] justify-between px-8">
+        className={`flex w-full justify-center ${round ? 'absolute z-20 bottom-12 left-1/2 -translate-x-1/2' : 'absolute z-20 bottom-4 left-1/2 -translate-x-1/2'}`}>
+        <div className="flex items-center gap-2.5 px-4 py-2 rounded-full bg-black/30 backdrop-blur-sm">
           {items.map((_, index) => (
             <motion.button
               type="button"
               key={index}
               aria-label={`Go to slide ${index + 1}`}
               aria-current={activeIndex === index}
-              className={`h-2 w-2 rounded-full cursor-pointer border-0 p-0 appearance-none transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
-                activeIndex === index
-                  ? round ? 'bg-white' : 'bg-[#333333]'
-                  : round ? 'bg-[#555]' : 'bg-[rgba(51,51,51,0.4)]'
+              className={`h-2.5 w-2.5 rounded-full cursor-pointer border-0 p-0 appearance-none transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
+                activeIndex === index ? 'bg-amber-400' : 'bg-white/40 hover:bg-white/70'
               }`}
-              animate={{ scale: activeIndex === index ? 1.2 : 1 }}
-              onClick={() => setPosition(loop ? index + 1 : index)}
+              animate={{ scale: activeIndex === index ? 1.3 : 1 }}
+              onClick={() => goTo(index)}
               transition={{ duration: 0.15 }} />
           ))}
         </div>

@@ -188,10 +188,9 @@ export default function Projects() {
         Projects
       </h1>
 
-      <div className="mt-12 md:mt-16 flex justify-center w-full">
+      <div className="mt-12 md:mt-16 w-full max-w-5xl mx-auto">
         <Carousel
           items={carouselItems}
-          baseWidth={380}
           baseHeight={480}
           autoplay
           autoplayDelay={4000}
@@ -200,6 +199,7 @@ export default function Projects() {
           round={false}
         />
       </div>
+      
     </section>
   );
 }
