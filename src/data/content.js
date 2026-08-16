@@ -3,6 +3,7 @@ import ADII from "../assets/logoADII.png";
 import moroCare from "../assets/moroCare.png";
 import WareTrack from "../assets/wareTrack.png";
 import WanderlustWorld from '../assets/WanderlustWorld.png';
+import FashionStore from '../assets/FashionStore.png';
 import cv from '../../public/CV_YounessLAMNAOUAR.pdf'
 
 export const profile = {
@@ -143,7 +144,7 @@ export const projects = [
       "A web-based multi-warehouse stock management system designed to centralize products, warehouses, inventory, and stock movements. The platform provides role-based access for administrators, managers, and agents, with complete operation traceability, analytical dashboards, stock alerts, transfer management, and Excel data export.",
     image: WareTrack,
     tags: [
-      "React",
+      "ReactJs",
       "Laravel",
       "MySQL",
       "Laravel Sanctum",
@@ -151,8 +152,8 @@ export const projects = [
       "Tailwind CSS",
     ],
     links: {
-      github: "YOUR_GITHUB_REPOSITORY_URL",
-      live: "YOUR_LIVE_PROJECT_URL",
+      github: "https://github.com/YounessLamnaouar/stock-management-frontend",
+      live: "https://stock-management-frontend-psi.vercel.app/",
     },
     date: "2026",
   },
@@ -168,5 +169,17 @@ export const projects = [
       live: "https://wanderlust-world-full-stack.vercel.app/",
     },
     date: "2024",
+  },
+    {
+    id: 4,
+    title: "Fashion Store",
+    description: "A modern e-commerce fashion storefront with animated product carousels, category browsing, and a wishlist feature built with React and Tailwind CSS.",
+    image: FashionStore,
+    tags: ["ReactJs", "Tailwind CSS", "AOS", "Lucide Icons"],
+    links: {
+      github: "https://ecommercefrontend-ochre-two.vercel.app",
+      live: "https://wanderlust-world-full-stack.vercel.app/",
+    },
+    date: "2026",
   },
 ];
