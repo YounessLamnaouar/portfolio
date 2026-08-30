@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import BorderGlow from "../components/BorderGlow";
 import { motion } from "motion/react";
-import { education, experience } from "@/data/content";
+import { education, experience, resume } from "@/data/content";
 
 const container = {
   hidden: {},
@@ -46,7 +46,7 @@ export default function Resume() {
             variants={heading}
             className="text-2xl mb-6 md:mb-8 lg:mb-12 md:text-4xl lg:text-6xl text-center aclonica-regular font-bold"
           >
-            My Experience
+            {resume.titles[0]}
           </motion.h1>
 
           <motion.div
@@ -129,7 +129,7 @@ export default function Resume() {
             variants={heading}
             className="text-2xl md:text-4xl mb-6 md:mb-8 lg:mb-12 lg:text-6xl text-center aclonica-regular font-bold"
           >
-            My Education
+            {resume.titles[1]}
           </motion.h1>
 
           <motion.div
@@ -203,7 +203,7 @@ export default function Resume() {
         variants={heading}
         className="text-white text-2xl mb-6 md:mb-8 lg:mb-12 md:text-4xl lg:text-6xl text-center aclonica-regular font-bold"
       >
-        My Certifications
+        {resume.titles[2]}
       </motion.h1>
 
       <motion.div

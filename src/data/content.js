@@ -183,3 +183,7 @@ export const projects = [
     date: "2026",
   },
 ];
+
+export const resume = {
+  titles: ['My Experience', 'My Education', 'My Certifications'],
+}
